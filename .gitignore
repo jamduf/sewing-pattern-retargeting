@@ -1,0 +1,30 @@
+# Data
+bigdata/
+*.tar.gz
+
+# Models
+*.pt
+models/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Outputs
+outputs/
+infer_plots*/
+eval_*/
+exported_pred*/
+
+# Mesh / graphics
+*.ply
+*.png
+*.svg
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
