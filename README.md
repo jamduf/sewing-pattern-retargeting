@@ -1,93 +1,43 @@
-# Sewing Pattern Retargeting & Pattern Extraction
+# Sewing Pattern Extraction and Retargeting
 
-Prototype pipeline for extracting sewing pattern panels from images and retargeting them to new body measurements using machine learning.
+<!-- I shortened the title above.  You need to redo your intro here so that it is actually interesting.
+Use this format: 1 sentence about what is the problem. 1 sentence about why existing solutions fail. 1 sentence about 1 is your solution. 1 sentence about why your solution is better than other solutions. -->
 
 <p align="center">
   <img src="docs/images/repothumbnail.png" width="1200">
 </p>
 
-<p align="center">
-  <em>1: Original garment pattern image. 2: Lasso tool pattern selection. 3: Extracted .svg filetype. 4: Retargeted pattern with updated size.</em>
-</p>
+<!-- the text you had here didn't explain anything not already explained in the image. -->
 
----
+## Usage
 
-## Project Overview
+<!-- you need a step-by-step set of instructions for running your code.  I've provided a rough outline here of a possibility. -->
 
-This project explores how machine learning can assist with sewing pattern resizing and adaptation.
-
-The pipeline combines:
-
-- interactive sewing pattern extraction from images
-- panel labeling and edge matching
-- geometric pattern processing
-- neural pattern retargeting conditioned on body measurements
-
-The goal is to support workflows such as:
-
-```text
-sewing pattern image
-        ↓
-interactive panel extraction
-        ↓
-structured sewing pattern representation
-        ↓
-body-conditioned pattern retargeting
-        ↓
-resized/exportable sewing pattern
+Install all dependencies by running
+```
+$ pip3 install -r requirements.txt
 ```
 
----
-
-# Repository Structure
-
-```text
-src/
-    pattern_lasso_v2.py        Interactive extraction tool
-    pattern_core_*             Internal pattern data structures
-
-    panel_mapping/
-        lasso_to_model_input.py
-        run_lasso_to_model.sh
-        size_charts/
-
-models/
-    pattern_retarget_shirt_v2.pt
-    pattern_retarget_pants_only_v1.pt
-
-docs/
-    images/
+Convert an input pattern (in png image format) into the custom XXX format the resizing model expects.
 ```
-
----
-
-# Features
-
-## Interactive Pattern Extraction
-
-The lasso tool supports:
-
-- edge-snapping pattern tracing
-- semantic garment panel labeling
-- seam pairing annotation
-- panel duplication / mirroring
-- structured JSON export
-
-<p align="center">
-  <img src="docs/images/lassotoolex_6.png" width="400">
-</p>
-
-Additional examples and controls are documented in:
-
-```text
-src/project/README.md
-src/project/panel_mapping/README.md
-models/README.md
+$ python3 run_tool.py input.png
 ```
+This command launches a window that allows you to manually annotate where the edges in the pattern are.
+The animated gif below shows the tool in action.
+<!-- this should be an animated gif showing the tool in action -->
+<img src="docs/images/lassotoolex_6.png" width="400">
 
----
+The output file is saved to a `output.XXX`.
+The last step is to pass this to our model.
+```
+$ python3 resize.py output.XXX --newsize=YYY
+```
+The command above generates a new pattern shown below
+<img src='fixme.png'>
 
-## ML-Based Pattern Retargeting
+## How it Works
+
+You need to write more here about how it works under the hood.
 
 The retargeting model:
 
@@ -131,6 +81,8 @@ Patterns currently work best when they:
 
 # Example Pipeline
 
+<!-- incorporate this into the Usage section I have above -->
+
 ## 1. Extract Pattern Panels
 
 ```bash
@@ -159,6 +111,8 @@ Predicted garment panels are exported as SVG for visualization.
 ---
 ## Dataset / External Resources
 
+<!-- this should be in the how it works section -->
+
 This project uses garment geometry and body measurement data derived from the GarmentCode dataset and framework.
 
 GarmentCode:
@@ -185,6 +139,9 @@ The project focuses on combining human-guided extraction with learned geometric 
 
 # Requirements
 
+<!--
+This is all gross.  You should have a requirements.txt file that lists the dependencies.
+-->
 Core dependencies:
 
 ```bash
@@ -202,4 +159,5 @@ pip install \
 
 # Author
 
+<!-- do not include this -->
 Senior thesis / research prototype exploring machine learning approaches for sewing pattern retargeting and garment geometry processing.
