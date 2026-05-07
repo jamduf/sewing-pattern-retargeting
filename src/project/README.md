@@ -36,7 +36,7 @@ pip install PyQt6 numpy opencv-python mapbox_earcut
 
 The current prototype works best with:
 
-- Shirt / Pants / Jacket patterns are currently the only supported pattern types
+- Shirt / Pants patterns are currently the only supported pattern types
 
 - Non-stretch woven garments
 - Simpler garments with fewer panels -- currently the model is trained on a pretty limited dataset, so simpler patterns work best 
@@ -70,7 +70,7 @@ python pattern_lasso.py
 
 # Application Overview
 
-<img src="../docs/images/lassotoolex1.png" width="350">
+<img src="../../docs/images/lassotoolex_1.png" width="350">
 
 # Controls
 
@@ -101,7 +101,7 @@ The magnetic lasso will attempt to snap to nearby edges automatically.
 
 Right click removes the most recent anchor.
 
-<img src="../docs/images/lassotoolex2.png" width="350">
+<img src="../../docs/images/lassotoolex_2.png" width="350">
 
 ---
 
@@ -110,9 +110,11 @@ Right click removes the most recent anchor.
 Once the full outline is traced:
 
 1. Press `Enter` to close the polygon
-2. Press `N` to save the panel
+2. Select which panel label is most appropriate -- for example, 'left_ftorso' is the front left torso panel, and 'pant_b_r' is the back right pants panel.
+3. Press `N` to save the panel
 
-<img src="../docs/images/lassotoolex3.png" width="350">
+<img src="../../docs/images/lassotoolex_3.png" width="350">
+<img src="../../docs/images/lassotoolex_4.png" width="350">
 
 ---
 
@@ -124,7 +126,7 @@ Panels can be duplicated and transformed to accelerate annotation of symmetric g
 
 Useful for mirrored garment pieces such as sleeves or pant legs. Look for notations on the pattern like 'fold' or lines indicating folding to see which panels need to be duplicated on shirts / jackets.
 
-<img src="../docs/images/lassotoolex4.png" width="350">
+<img src="../../docs/images/lassotoolex_5.png" width="350">
 
 ---
 
@@ -132,18 +134,13 @@ Useful for mirrored garment pieces such as sleeves or pant legs. Look for notati
 
 Mirror or vertically flip duplicated pieces to align with the original garment layout. This will be necessary for edge matching later on. 
 
-<img src="../docs/images/lassotoolex5.png" width="350">
+<img src="../../docs/images/lassotoolex_6.png" width="350">
 
 ---
 
 ### Completed Panel Layout
 
-A completed annotation should include all major garment panels.
-
-**Note:**  
-In this example, the shirt pocket is intentionally excluded because the current lasso tool and downstream ML pipeline do not yet handle small decorative subcomponents reliably.
-
-<img src="../docs/images/lassotoolex6.png" width="350">
+A completed annotation should include all major garment panels. Because of limitations with the model training set and what details are supported, details like pockets should not be included in the completed panel layout. Additionally, there should not be more than one of any panel type, meaning that there can only be up to 4 torso panels etc. 
 
 ---
 
@@ -171,7 +168,7 @@ Examples:
 - inseam ↔ inseam
 - duplicated pieces, if intended to be one solid piece should be matched on the folded edge.
 
-<img src="../docs/images/lassotoolex7.png" width="350">
+<img src="../../docs/images/lassotoolex_7.png" width="350">
 
 ---
 
@@ -179,7 +176,7 @@ Examples:
 
 Once all seam relationships are defined, the garment topology is complete.
 
-<img src="../docs/images/lassotoolex7.png" width="350">
+<img src="../../docs/images/lassotoolex_8.png" width="350">
 
 *Figure 8: Completed seam pairing layout.*
 
@@ -187,13 +184,9 @@ Once all seam relationships are defined, the garment topology is complete.
 
 # Exporting the Pattern
 
-Press `X` to export all saved panels and seam relationships.
+Press `J` to export all saved panels and seam relationships into the .json filetype.
 
 The exported format is compatible with the downstream geometry and ML pipeline.
-
-<img src="../docs/images/lassotoolex7.png" width="350">
-
-*Figure 9: Exported structured garment pattern.*
 
 ---
 
@@ -238,7 +231,6 @@ Current supported workflows:
 
 - Shirt panel extraction
 - Pants panel extraction
-- Basic jacket panel extraction
 - Pattern export
 - Seam pairing
 - ML retargeting experiments
