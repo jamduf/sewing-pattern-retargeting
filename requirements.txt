@@ -1,0 +1,8 @@
+numpy
+torch
+PyQt6
+opencv-python
+mapbox-earcut
+matplotlib
+pyyaml
+cairosvg
