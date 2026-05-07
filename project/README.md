@@ -22,13 +22,21 @@ Install:
 ```bash
 pip install PyQt6 numpy opencv-python mapbox_earcut
 
+## Selecting a Pattern
+  Which patterns would be ideal?
+    - nonstretch
+    - currently less panels is better -- still a prototype and training set is limited
+    - 
+  Which patterns should you not choose ?
+  - athletic wear made of stretch materials, 
+
 ## How to Use
 
 To use the lasso tool, run the following command:  
 ```bash
 python pattern_lasso.py
 
-#### INSERT IMAGE HERE
+picture 1: overview of the application
 
 Then, use these controls to select the pattern pieces:
 
@@ -43,15 +51,30 @@ Then, use these controls to select the pattern pieces:
 | F  | Flip Panel (Vertical)  |
 | E  | Export Current Panel  |
 | X  | Export All Saved Panels |
-| R  | Reset Current Selection | 
+| R  | Reset Current Selection |
+| / or \ | Rotate |
+| S  | Change to Edge Matching Mode |
 
 
 ### GUIDE HERE:
 
+picture 2: selecting edges -- left click (will follow cursor until left clicked to confirm / right click to undo)
+
+picture 3: saving a face -- enter to convert into a panel, n to save
+
+picture 4 / 5 / 6: duplicating a face, flipping the panel, and a general overview of what a pattern with all selected panels should look like
+NOTE: in this example, do not include the shirt pocket as both the lasso tool / model can't handle details like that
+
+picture 7: edge matching mode -- which edges should be matched ?
+
+picture 8: what it should look like with all matched edges
+
+picture 9: exporting the formatted garment pattern
+
 limitations on patterns -- what parts should you not select for pants / shirts / jackets ?
 pants - button fly / pockets
 shirts - pockets
-jackets - 
+jackets - pockets, cuffs
 
 
 
