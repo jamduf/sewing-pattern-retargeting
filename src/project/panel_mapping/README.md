@@ -85,7 +85,7 @@ body:
   arm_length: 56.0
 ```
 
-The required measurement fields must match the GarmentCode body measurement format.
+The required measurement fields must match the GarmentCode body measurement format. In the future, I hope to implement some sort of 3D scan system to easily get target measurements for the user. 
 
 Templates are provided in:
 
@@ -138,8 +138,8 @@ meta.json
 # Example
 
 <p align="center">
-  <img src="../../examples/lasso_shirt_demo/outputex1.png" width="420">
-  <img src="../../examples/lasso_shirt_demo/outputex2.png" width="420">
+  <img src="../../../docs/images/outputex1.png" width="420">
+  <img src="../../../docs/images/outputex2.png" width="420">
 </p>
 
 Left: extracted source pattern  
@@ -153,7 +153,7 @@ The current prototype works best when:
 
 - garment panel structures resemble training data
 - patterns contain relatively few decorative details
-- garments use non-stretch woven fabrics
+- garment patterns are intended for non-stretch woven fabrics
 
 Known limitations:
 
