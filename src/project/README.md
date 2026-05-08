@@ -2,34 +2,6 @@
 
 Interactive tool for extracting sewing pattern panels from images and exporting them into a structured format for downstream processing (e.g., `.ply` meshes for GarmentCode-style datasets).
 
----
-
-## Features
-
-- Magnetic lasso / edge-snapping selection
-- Interactive panel extraction from raster sewing patterns
-- Panel duplication and symmetry tools
-- Edge matching / seam pairing workflow
-- Export to `.ply` mesh format
-
----
-
-## Requirements
-
-- Python 3.9+
-- PyQt6
-- numpy
-- opencv-python
-- mapbox_earcut
-
-Install dependencies:
-
-```bash
-pip install PyQt6 numpy opencv-python mapbox_earcut
-```
-
----
-
 # Selecting a Pattern
 
 ## Ideal Patterns
@@ -190,49 +162,4 @@ The exported format is compatible with the downstream geometry and ML pipeline.
 
 ---
 
-# Current Limitations
 
-This project is currently a research prototype.
-
-Known limitations include:
-
-- limited support for highly detailed garments
-- limited handling of curved seam topology
-- no automatic pocket / cuff / lining detection
-- limited support for stretch garments
-- no fabric simulation
-- partial support for nested or overlapping pattern pieces
-
----
-
-# Pipeline Integration
-
-The lasso tool is designed as the front-end extraction stage of a larger pipeline:
-
-```text
-Pattern Image / PDF
-        ↓
-Pattern Lasso Tool
-        ↓
-Structured Pattern Representation
-        ↓
-Mesh / Geometry Conversion
-        ↓
-ML-Based Garment Retargeting
-        ↓
-Resized Garment Pattern
-```
-
----
-
-# Project Status
-
-Current supported workflows:
-
-- Shirt panel extraction
-- Pants panel extraction
-- Pattern export
-- Seam pairing
-- ML retargeting experiments
-
-This project is actively under development.
