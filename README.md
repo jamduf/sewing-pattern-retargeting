@@ -31,14 +31,41 @@ The output file is saved to a `output.json` format.
 More information on how to use the panel selection tool can be found at `src/projects/README.md`.
 
 The last step is to pass this to our model. From the root repo, run: 
+
 ```
-$ src/projects/panel_mapping/run_lasso_to_model.sh \
+$ cd src/project/panel_mapping
+```
+
+to navigate to the correct file. Then, move the JSON output file from the lasso annotation tool by running: 
+
+```
+$ cp YOUR/PATH/TO/FILE/pattern_project.json .
+```
+
+Finally, run the model by using: 
+
+```
+$ PYTHONPATH="../../models;../../utils" ./run_lasso_to_model.sh \
   pattern_project.json \
-  source_measurements.yaml \
-  target_measurements.yaml \
-  checkpoint.pt \
+  size_charts/source_measurements.yaml \
+  size_charts/target_measurements.yaml \
+  ../../../models/choose_model.pt \
   output_dir
 ```
+
+Templates for the measurements input, as well as placeholder measurment sets, are located in the `src/project/panel_mapping/size_charts`
+
+As an example, to use default source and target body measurements with the shirt model, run: 
+
+```
+$ PYTHONPATH="../../models;../../utils" ./run_lasso_to_model.sh \
+  pattern_project.json \
+  size_charts/source_measurements_gc.yaml \
+  size_charts/target_measurements_gc.yaml \
+  ../../../models/pattern_retarget_shirt_v2.pt \
+  output_dir
+```
+
 The command above generates a new pattern shown below: 
 
 .svg-formatted source pattern:
