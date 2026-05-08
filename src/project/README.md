@@ -115,16 +115,12 @@ Examples:
 
 <img src="../../docs/images/lassotoolex_7.png" width="350">
 
----
-
 ## Fully Matched Garment
 
 Once all seam relationships are defined, the garment topology is complete.
 
 <img src="../../docs/images/lassotoolex_8.png" width="350">
 
-
----
 
 ## Exporting the Pattern
 
@@ -134,6 +130,5 @@ The exported format is compatible with the downstream geometry and ML pipeline.
 
 Further instructions on using the exported JSON file to run the model are located in the main `readme` file.
 
----
 
 
